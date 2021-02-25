@@ -14,7 +14,7 @@ export function App() {
   }, [])
 
   return (
-    <>
+    <div>
       <ul>
         {Object.entries(
           // @ts-ignore
@@ -22,7 +22,7 @@ export function App() {
         ).map(([currencyCode, currencyDetails]) => {
           return (
             <li key={currencyCode}>
-              {currencyCode} : {currencyDetails}
+              {currencyCode} : {(currencyDetails * amount).toFixed(2)}
             </li>
           )
         })}
@@ -32,6 +32,9 @@ export function App() {
         onChange={(event) => setAmount(event.target.value)}
         value={amount}
       />
-    </>
+      <footer>
+        <h1>US $ Currency Converter</h1>
+      </footer>
+    </div>
   )
 }
